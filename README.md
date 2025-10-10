@@ -1,1 +1,77 @@
-ciao
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Romantic Heart</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .heart {
+      width: 100px;
+      height: 90px;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 90px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 50px;
+      top: 0;
+    }
+
+    .heart {
+      background: red;
+      transform: rotate(-45deg);
+    }
+
+    .message {
+      margin-top: 30px;
+      font-size: 1.5em;
+      color: white;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="heart" onclick="showMessage()"></div>
+  <div class="message" id="romanticMessage">SE RINASCO VENGO A CERCARTI PRIMA</div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("romanticMessage").classList.add("show");
+    }
+  </script>
+</body>
+</html>
