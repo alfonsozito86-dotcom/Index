@@ -8,15 +8,17 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom right, #fceabb, #f8b500);
+      background: linear-gradient(135deg, #ff4e50, #f00000, #b30000);
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      font-family: 'Garamond', serif;
+      font-family: 'Dancing Script', cursive;
       overflow: hidden;
       position: relative;
     }
+
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
     .container {
       position: relative;
@@ -63,16 +65,17 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 1.8em;
-      color: #3c2f2f;
+      font-size: 2em;
+      color: #0033cc;
       opacity: 0;
       transition: opacity 2s ease;
       z-index: 1;
       padding: 20px;
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.6);
       border-radius: 12px;
       backdrop-filter: blur(6px);
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      animation: fadeInText 3s ease-in-out infinite alternate;
     }
 
     .show-message {
@@ -82,6 +85,11 @@
     .hide-heart {
       opacity: 0;
       transform: scale(0.5);
+    }
+
+    @keyframes fadeInText {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+      100% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
     }
   </style>
 </head>
