@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MyLady</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,800&display=swap');
 
     body {
       margin: 0;
@@ -26,9 +27,20 @@
       text-align: center;
     }
 
+    .page-title {
+      position: absolute;
+      top: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.8em;
+      color: white;
+      font-style: italic;
+      z-index: 3;
+    }
+
     .heart {
-      width: 280px;
-      height: 250px;
+      width: 320px;
+      height: 290px;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -44,20 +56,20 @@
     .heart::after {
       content: "";
       position: absolute;
-      width: 280px;
-      height: 250px;
+      width: 320px;
+      height: 290px;
       background: radial-gradient(circle at center, crimson 40%, transparent 100%);
       border-radius: 50%;
       filter: blur(1px);
     }
 
     .heart::before {
-      top: -140px;
+      top: -160px;
       left: 0;
     }
 
     .heart::after {
-      left: 140px;
+      left: 160px;
       top: 0;
     }
 
@@ -66,13 +78,14 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 1.8em;
+      font-size: 1.6em;
       color: #0033cc;
       opacity: 0;
       z-index: 1;
       transition: opacity 2s ease;
       animation: fadeInText 3s ease-in-out infinite alternate;
       font-style: italic;
+      font-weight: 800;
     }
 
     .show-message {
@@ -92,6 +105,7 @@
 </head>
 <body>
   <div class="container">
+    <div class="page-title">MyLady</div>
     <div class="heart" onclick="revealMessage()"></div>
     <div class="message" id="romanticMessage">SE RINASCO<br>VENGO A CERCARTI PRIMA</div>
   </div>
@@ -101,9 +115,10 @@
       document.querySelector('.heart').classList.add('hide-heart');
       setTimeout(() => {
         document.getElementById('romanticMessage').classList.add('show-message');
-      }, 2000); // Aspetta che il cuore svanisca
+      }, 2000);
     }
   </script>
 </body>
 </html>
+
 
