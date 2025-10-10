@@ -3,26 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Romantic Heart</title>
+  <title>MyLady</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
+      background: radial-gradient(circle at center, #ffdee9, #b5fffc);
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Georgia', serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      position: relative;
+      width: 200px;
+      height: 200px;
     }
 
     .heart {
       width: 100px;
       height: 90px;
-      position: relative;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      background: crimson;
+      transition: opacity 1.5s ease;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      z-index: 2;
     }
 
     .heart::before,
@@ -31,7 +43,7 @@
       position: absolute;
       width: 100px;
       height: 90px;
-      background: red;
+      background: crimson;
       border-radius: 50%;
     }
 
@@ -45,30 +57,9 @@
       top: 0;
     }
 
-    .heart {
-      background: red;
-      transform: rotate(-45deg);
-    }
-
     .message {
-      margin-top: 30px;
-      font-size: 1.5em;
-      color: white;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
+      position: absolute;
 
-    .show {
-      opacity: 1;
-    }
-  </style>
-</head>
-<body>
-  <div class="heart" onclick="showMessage()"></div>
-  <div class="message" id="romanticMessage">SE RINASCO VENGO A CERCARTI PRIMA</div>
-
-  <script>
     function showMessage() {
       document.getElementById("romanticMessage").classList.add("show");
     }
