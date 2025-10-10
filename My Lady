@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MyLady</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #ff4e50, #f00000, #b30000);
+      background: linear-gradient(135deg, #8b0000, #ff4e50, #ff9999);
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      font-family: 'Dancing Script', cursive;
+      font-family: 'Great Vibes', cursive;
       overflow: hidden;
       position: relative;
     }
-
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
     .container {
       position: relative;
@@ -28,35 +28,37 @@
     }
 
     .heart {
-      width: 120px;
-      height: 108px;
+      width: 200px;
+      height: 180px;
       position: absolute;
-      top: 40%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(-45deg);
-      background: crimson;
+      background: radial-gradient(circle at center, crimson 40%, transparent 100%);
       cursor: pointer;
-      transition: opacity 1.5s ease, transform 1.5s ease;
+      transition: opacity 2s ease, transform 2s ease;
       z-index: 2;
+      filter: blur(1px);
     }
 
     .heart::before,
     .heart::after {
       content: "";
       position: absolute;
-      width: 120px;
-      height: 108px;
-      background: crimson;
+      width: 200px;
+      height: 180px;
+      background: radial-gradient(circle at center, crimson 40%, transparent 100%);
       border-radius: 50%;
+      filter: blur(1px);
     }
 
     .heart::before {
-      top: -60px;
+      top: -100px;
       left: 0;
     }
 
     .heart::after {
-      left: 60px;
+      left: 100px;
       top: 0;
     }
 
@@ -65,16 +67,11 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 2em;
+      font-size: 2.5em;
       color: #0033cc;
       opacity: 0;
-      transition: opacity 2s ease;
       z-index: 1;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.6);
-      border-radius: 12px;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: opacity 2s ease;
       animation: fadeInText 3s ease-in-out infinite alternate;
     }
 
@@ -102,8 +99,11 @@
   <script>
     function revealMessage() {
       document.querySelector('.heart').classList.add('hide-heart');
-      document.getElementById('romanticMessage').classList.add('show-message');
+      setTimeout(() => {
+        document.getElementById('romanticMessage').classList.add('show-message');
+      }, 2000); // Aspetta che il cuore svanisca
     }
   </script>
 </body>
 </html>
+
