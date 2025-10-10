@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MyLady</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap');
 
     body {
       margin: 0;
@@ -15,7 +15,7 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      font-family: 'Great Vibes', cursive;
+      font-family: 'Playfair Display', serif;
       overflow: hidden;
       position: relative;
     }
@@ -28,8 +28,8 @@
     }
 
     .heart {
-      width: 200px;
-      height: 180px;
+      width: 280px;
+      height: 250px;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -45,20 +45,20 @@
     .heart::after {
       content: "";
       position: absolute;
-      width: 200px;
-      height: 180px;
+      width: 280px;
+      height: 250px;
       background: radial-gradient(circle at center, crimson 40%, transparent 100%);
       border-radius: 50%;
       filter: blur(1px);
     }
 
     .heart::before {
-      top: -100px;
+      top: -140px;
       left: 0;
     }
 
     .heart::after {
-      left: 100px;
+      left: 140px;
       top: 0;
     }
 
@@ -67,12 +67,13 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 2.5em;
+      font-size: 1.8em;
       color: #0033cc;
       opacity: 0;
       z-index: 1;
       transition: opacity 2s ease;
       animation: fadeInText 3s ease-in-out infinite alternate;
+      font-style: italic;
     }
 
     .show-message {
