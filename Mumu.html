@@ -42,6 +42,8 @@
     .heart {
       width: 50vw;
       height: 45vw;
+      max-width: 90vw;
+      max-height: 90vw;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -59,6 +61,8 @@
       position: absolute;
       width: 50vw;
       height: 45vw;
+      max-width: 90vw;
+      max-height: 90vw;
       background: radial-gradient(circle at center, crimson 40%, transparent 100%);
       border-radius: 50%;
       filter: blur(1px);
@@ -84,4 +88,87 @@
       opacity: 0;
       z-index: 1;
       transition: opacity 2s ease;
-      animation: fadeInText 3s ease-in-out infinite
+      animation: fadeInText 3s ease-in-out infinite alternate;
+      font-style: italic;
+      font-weight: 800;
+      white-space: pre-line;
+    }
+
+    .show-message {
+      opacity: 1;
+    }
+
+    .hide-heart {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+
+    @keyframes fadeInText {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+      100% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      .page-title {
+        font-size: 7vw;
+      }
+
+      .message {
+        font-size: 5vw;
+      }
+
+      .heart {
+        width: 70vw;
+        height: 65vw;
+      }
+
+      .heart::before,
+      .heart::after {
+        width: 70vw;
+        height: 65vw;
+      }
+
+      .heart::before {
+        top: -32.5vw;
+      }
+
+      .heart::after {
+        left: 35vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" onclick="toggleHeart()">
+    <div class="page-title" id="pageTitle">Mumu'</div>
+    <div class="heart" id="heartElement"></div>
+    <div class="message" id="romanticMessage">
+      PERCHE' SEI UN ESSERE SPECIALE<br>ED IO AVRÒ CURA DI TE
+    </div>
+  </div>
+
+  <script>
+    let heartVisible = true;
+
+    function toggleHeart() {
+      const heart = document.getElementById('heartElement');
+      const message = document.getElementById('romanticMessage');
+      const title = document.getElementById('pageTitle');
+
+      if (heartVisible) {
+        heart.classList.add('hide-heart');
+        title.style.opacity = 0;
+        setTimeout(() => {
+          message.classList.add('show-message');
+        }, 2000);
+      } else {
+        heart.classList.remove('hide-heart');
+        title.style.opacity = 1;
+        message.classList.remove('show-message');
+      }
+
+      heartVisible = !heartVisible;
+    }
+  </script>
+</body>
+</html>
